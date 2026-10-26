@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101820">
+  <title>Battle Royale by Fadli</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="rotateNotice"><div><strong>PUTAR HP ANDA</strong><p>Harap putar HP Anda ke posisi Miring / Landscape untuk bermain.</p></div></div>
+  <section id="loginScreen" class="screen login-screen">
+    <div class="login-card">
+      <div class="eyebrow">BATTLE ROYALE</div><h1>LAST <span>ZONE</span></h1>
+      <p>Masuk ke medan pertempuran</p>
+      <form id="loginForm">
+        <label>Username</label><input id="username" autocomplete="username" value="" placeholder="Masukkan username" required>
+        <label>Password</label><input id="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required>
+        <button class="primary full" type="submit">LOGIN</button>
+        <small id="loginError" class="error"></small>
+      </form>
+      <p class="muted">Demo akun: <b>User123</b> / <b>User456</b></p>
+    </div>
+  </section>
+
+  <main id="gameApp" class="hidden">
+    <div id="sceneHost"></div>
+    <header class="topbar">
+      <div class="brand">LAST<span>ZONE</span> <small>BY FADLI</small></div>
+      <div class="profile"><b id="nickname">User123</b><span>LV. 1 · BRONZE</span></div>
+      <div class="currency"><span>🟡 <b id="gold">1200</b></span><span>💎 100</span></div>
+      <button id="logoutBtn" class="ghost">Keluar</button>
+    </header>
+
+    <section id="lobbyPanel" class="lobby-panel">
+      <div class="lobby-copy"><div class="eyebrow">SURVIVE. LOOT. WIN.</div><h1>SIAP UNTUK<br><span>BERTEMPUR?</span></h1>
+      <p>Masuki pulau, kumpulkan perlengkapan, dan jadilah yang terakhir bertahan.</p>
+      <div class="lobby-actions"><button id="startBtn" class="primary start">▶ MULAI MATCH</button><button id="modeBtn" class="secondary">SOLO · 49 BOT ▾</button></div>
+      <div id="modeMenu" class="popup hidden"><button data-mode="solo">Solo · 49 Bot</button><button data-mode="practice">Latihan · 10 Bot</button></div>
+      </div>
+      <nav class="nav-menu">
+        <button data-page="lobby" class="active">LOBBY</button><button data-page="vault">VAULT</button><button data-page="store">STORE</button><button data-page="emotes">EMOTE</button><button data-page="settings">SETTINGS</button>
+      </nav>
+      <div id="pagePanel" class="page-panel"></div>
+    </section>
+
+    <section id="loadingScreen" class="overlay hidden"><div class="loading-card"><div class="eyebrow">DEPLOYING TO ISLAND</div><h1>PREPARING BATTLE</h1><p id="loadingTip">Tips: cari perlengkapan sebelum zona menyempit.</p><div class="progress"><div id="progressFill"></div></div><b id="progressText">0%</b></div></section>
+
+    <section id="matchHud" class="hidden">
+      <div class="hud-top"><div class="pill">ALIVE <b id="aliveCount">50</b> / 50</div><div class="pill">KILLS <b id="killCount">0</b></div><button id="mapButton" class="pill">MAP ⤢</button></div>
+      <canvas id="minimap" width="180" height="180"></canvas>
+      <div id="killfeed"></div>
+      <div class="crosshair">+</div>
+      <div class="hud-bottom"><div class="health"><span>HP</span><div class="bar"><i id="hpBar"></i></div><b id="hpText">200</b></div><div class="health"><span>EP</span><div class="bar ep"><i id="epBar"></i></div><b id="epText">0</b></div><div class="weapon-readout"><b id="weaponName">M4A1</b><span id="ammoText">30 / 120</span></div></div>
+      <div class="touch-controls">
+        <div id="joystick" class="joystick"><div id="stick" class="stick"></div></div>
+        <div class="touch-right"><button data-action="scope">SCOPE</button><button data-action="jump">JUMP</button><button data-action="reload">RELOAD</button><button data-action="medkit">MEDKIT</button><button data-action="gloo">GLOO</button><button data-action="fire" class="fire">FIRE</button></div>
+      </div>
+      <div class="desktop-hint">WASD gerak · Mouse kamera · Klik tembak · Shift lari · Space lompat · R reload · F loot · E gloo</div>
+    </section>
+    <section id="matchMessage" class="overlay hidden"><div class="result-card"><div class="eyebrow" id="resultEyebrow">MATCH RESULT</div><h1 id="resultTitle">DEFEAT</h1><p id="resultStats"></p><button id="backLobby" class="primary">KEMBALI KE LOBBY</button></div></section>
+    <section id="mapModal" class="overlay hidden"><div class="map-card"><button id="closeMap" class="ghost close">✕</button><h2>ISLAND MAP</h2><canvas id="fullMap" width="700" height="500"></canvas><p>Garis kuning: lintasan pesawat · Lingkaran: safe zone</p></div></section>
+    <div id="toast"></div>
+  </main>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
