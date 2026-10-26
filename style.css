@@ -2,3 +2,26 @@
 
 /* Device selection and explicit control modes */
 .device-screen{z-index:120}.device-card h1{font-size:clamp(28px,5vw,42px)}.device-choice{display:block;text-align:left;margin-top:12px;line-height:1.4}.device-choice small{display:block;font-size:11px;font-weight:500;letter-spacing:0;color:inherit;opacity:.82;margin-top:5px}.device-choice.secondary{color:#fff}.touch-controls{display:none}body.mobile-mode .touch-controls{display:block}body.mobile-mode .desktop-hint{display:none}body.computer-mode .touch-controls{display:none}body.computer-mode .desktop-hint{display:block}body.mobile-mode #rotateNotice{display:none!important}body.mobile-mode .joystick,body.mobile-mode .touch-right button{touch-action:none;user-select:none;-webkit-user-select:none}body.mobile-mode #sceneHost canvas{touch-action:none}body.mobile-mode .touch-right{grid-template-columns:repeat(3, minmax(42px, 58px));right:10px;bottom:82px;gap:5px}body.mobile-mode .touch-right button{height:42px;font-size:8px}body.mobile-mode .joystick{width:112px;height:112px;left:18px;bottom:24px}body.mobile-mode .stick{left:34px;top:34px;width:40px;height:40px}body.mobile-mode .touch-tip{left:138px;bottom:26px;max-width:120px}body.mobile-mode #gameApp{touch-action:none}body.mobile-mode .hud-bottom{bottom:8px;pointer-events:none}body.mobile-mode .hud-bottom>*{pointer-events:auto}@media(max-width:700px){.device-card{padding:24px}.device-choice{font-size:13px}.topbar{gap:5px}.topbar #deviceChangeBtn{font-size:8px;padding:7px}.topbar #logoutBtn{font-size:8px;padding:7px}body.mobile-mode .touch-right{grid-template-columns:repeat(3, 46px);right:7px;bottom:86px;gap:4px}body.mobile-mode .touch-right button{height:38px;font-size:7px}body.mobile-mode .joystick{width:100px;height:100px;left:14px;bottom:25px}body.mobile-mode .stick{left:29px;top:29px}body.mobile-mode .touch-tip{left:118px;bottom:22px;font-size:8px;max-width:100px}}
+
+/* FIX v2: lobby actions remain clickable and fit short landscape mobile viewports */
+.lobby-copy{z-index:4;max-height:calc(100% - 110px);overflow:visible}
+.lobby-actions{position:relative;z-index:8}
+.lobby-actions button{position:relative;z-index:9;pointer-events:auto}
+.nav-menu{z-index:2}
+.page-panel{z-index:2}
+#startBtn{min-height:48px;touch-action:manipulation}
+body.mobile-mode .lobby-copy{left:3vw;top:7%;width:58vw}
+body.mobile-mode .lobby-copy h1{font-size:clamp(25px,4.2vw,42px)}
+body.mobile-mode .lobby-copy p{font-size:clamp(11px,1.5vw,15px);max-width:45vw;margin:8px 0}
+body.mobile-mode .lobby-actions{margin-top:10px;gap:6px}
+body.mobile-mode .lobby-actions .start{min-width:150px;padding:12px 14px;font-size:12px}
+body.mobile-mode .lobby-actions .secondary{padding:10px;font-size:10px}
+body.mobile-mode .nav-menu{left:3vw;right:3vw;bottom:8px;gap:4px}
+body.mobile-mode .nav-menu button{padding:8px 10px;font-size:9px}
+body.mobile-mode .page-panel{right:3vw;top:auto;bottom:72px;width:36vw;max-height:30vh;overflow:auto}
+body.mobile-mode #loadingScreen{z-index:30}
+body.mobile-mode #matchHud{position:absolute;inset:0;z-index:5;pointer-events:none}
+body.mobile-mode #matchHud button,body.mobile-mode #matchHud .joystick,body.mobile-mode #matchHud .touch-right{pointer-events:auto}
+body.mobile-mode .touch-controls{pointer-events:none}
+body.mobile-mode .touch-controls .joystick,body.mobile-mode .touch-controls .touch-right{pointer-events:auto}
+@media(max-height:520px){body.mobile-mode .topbar{padding:6px 10px}body.mobile-mode .lobby-copy{top:5%}body.mobile-mode .lobby-copy h1{font-size:clamp(22px,4vw,34px);margin:7px 0}body.mobile-mode .lobby-copy p{display:none}body.mobile-mode .lobby-actions{margin-top:8px}body.mobile-mode .page-panel{bottom:58px;max-height:28vh}body.mobile-mode .nav-menu button{padding:6px 8px}}
